@@ -21,5 +21,5 @@ class Deck:
                 dealt_cards.append(self.cards.pop())
             else:
                 print("Error: Deck is empty. Cannot deal cards.")
-                return None  # Return None or handle the empty deck condition appropriately
+                return None  
         return dealt_cards
