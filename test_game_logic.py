@@ -14,7 +14,7 @@ class TestDeck(unittest.TestCase):
         deck = Deck()
         original_order = deck.cards[:]
         deck.shuffle()
-        self.assertEqual(original_order, deck.cards)# Change this line back to asserNotEqual
+        self.assertNotEqual(original_order, deck.cards)
 
     def test_deal_cards(self):
         deck = Deck()
