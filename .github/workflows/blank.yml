@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: pip install coverage
+
       # Runs a set of commands using the runners shell
       - name: Run Tests with Coverage
         run: coverage run test_game_logic.py
