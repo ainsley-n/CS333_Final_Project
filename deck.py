@@ -17,5 +17,9 @@ class Deck:
     def deal(self, num_cards):
         dealt_cards = []
         for _ in range(num_cards):
-            dealt_cards.append(self.cards.pop())
+            if self.cards:
+                dealt_cards.append(self.cards.pop())
+            else:
+                print("Error: Deck is empty. Cannot deal cards.")
+                return None  # Return None or handle the empty deck condition appropriately
         return dealt_cards

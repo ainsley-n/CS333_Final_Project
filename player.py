@@ -3,6 +3,7 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.hand = []
+        self.matches = []
 
     def draw(self, cards):
         self.hand.extend(cards)
@@ -23,7 +24,17 @@ class Player:
                 ranks_count[card.rank] += 1
             else:
                 ranks_count[card.rank] = 1
-        matches = [rank for rank, count in ranks_count.items() if count == 4]
-        for rank in matches:
-            self.hand = [card for card in self.hand if card.rank != rank]
-        return len(matches)
+
+        # print("Ranks count:", ranks_count)
+
+        for rank, count in ranks_count.items():
+            if count == 4:
+                self.matches.append(rank)
+                self.hand = [card for card in self.hand if card.rank != rank]
+
+        # print("Matches:", self.matches)
+
+        # print("Updated hand after removing matches:", self.hand)
+
+        return len(self.matches)
+
