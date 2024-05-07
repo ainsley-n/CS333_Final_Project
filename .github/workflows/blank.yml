@@ -30,13 +30,15 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run Tests with Coverage
-        run: coverage run test_game_logic.py
+        run: coverage run --source=./ test_game_logic.py
 
       - name: Check Test Coverage
         run: |
-          COVERAGE=$(coverage report --fail-under=75 | grep TOTAL | awk '{print $NF}')
-          echo "Coverage: $COVERAGE"
-          if (( $(echo "$COVERAGE < 75" | bc -l) )); then
+          COVERAGE=$(coverage report --fail-under=75 | awk '/TOTAL/ {print $NF}' | tr -d '[:space:]' | tr -d '%')
+          COVERAGE_INT=${COVERAGE%.*}
+          if (( COVERAGE_INT < 75 )); then
             echo "Coverage is less than 75%"
             exit 1
           fi
+
+          echo "Coverage is sufficient: ${COVERAGE}%"
