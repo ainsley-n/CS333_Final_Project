@@ -15,7 +15,7 @@ class GoFishGame:
             player.draw(self.deck.deal(num_cards_per_player))
 
     def take_turn(self, current_player, other_player):
-        print(f"{current_player.name}, it's your turn.")
+        print(f"{current_player.name}, it is your turn.")
         print("Your hand:")
         for card in current_player.hand:
             print(card)
