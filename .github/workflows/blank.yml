@@ -63,6 +63,8 @@ jobs:
           docker push docker.io/anutting/go_fish_game:latest
           
       - name: Pull latest docker
-        run: docker pull docker.io/anutting/go_fish_game:latest
+        run: |
+          docker login -u "${{ secrets.DOCKERHUB_PASSWORD }}" -p "${{ secrets.DOCKERHUB_USERNAME }}
+          docker pull docker.io/anutting/go_fish_game:latest
 
     
