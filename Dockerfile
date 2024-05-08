@@ -13,5 +13,5 @@ RUN pip install coverage
 
 # CMD specifies the command to run when the container starts
 # Since you want to run the game when the container starts, you can specify the command to execute the game script
-CMD ["python", "game.py"]
+CMD ["python", "-i", "game.py"]
 
