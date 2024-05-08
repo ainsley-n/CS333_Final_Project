@@ -63,6 +63,7 @@ jobs:
 
       - name: Pull Updated Software
         run: docker pull ghcr.io/anutting/go_fish_game:latest
+        
       # - name: Build and package executable
       #   run: |
       #     docker build -t ghcr.io/anutting/go_fish_game:latest .
