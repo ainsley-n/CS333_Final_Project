@@ -65,6 +65,6 @@ jobs:
       - name: Pull latest docker
         run: |
           echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-          docker pull docker.io/anutting/go_fish_game:latest
+          docker compose pull docker.io/anutting/go_fish_game:latest
 
     
