@@ -52,26 +52,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Check Secret Presence
+      - name: Build and package executable
         run: |
-          echo "Checking DockerHub username..."
-          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
-            echo "DOCKERHUB_USERNAME is missing"
-            exit 1
-          fi
-      
-          echo "Checking DockerHub password..."
-          if [ -z "${{ secrets.DOCKERHUB_PASSWORD }}" ]; then
-            echo "DOCKERHUB_PASSWORD is missing"
-            exit 1
-          fi
-    
-          echo "All secrets are present."
-        
-      - name: Log in to Docker Hub
-        run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u anutting --password-stdin
+          docker build -t anutting/go_fish_game:latest .
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Push to container registry
         run: |
-          docker push anutting/go_fish_game
+          docker push anutting/go_fish_game:latest
     
