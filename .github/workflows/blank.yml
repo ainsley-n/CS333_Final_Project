@@ -62,5 +62,7 @@ jobs:
           docker tag anutting/go_fish_game:latest docker.io/anutting/go_fish_game:latest
           docker push docker.io/anutting/go_fish_game:latest
           
+      - name: Pull latest docker
+        run: docker pull docker.io/anutting/go_fish_game:latest
 
     
