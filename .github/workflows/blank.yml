@@ -54,12 +54,12 @@ jobs:
 
       - name: Build and package executable
         run: |
-          docker build -t anutting/go_fish_game:latest .
+          docker build -t ghcr.io/anutting/go_fish_game:latest .
           echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Push to container registry
         run: |
-          docker push anutting/go_fish_game:latest
+          docker push ghcr.io/anutting/go_fish_game:latest
 
       - name: Run updated software
         run: |
