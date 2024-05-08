@@ -62,7 +62,9 @@ jobs:
         run: docker push ghcr.io/anutting/go_fish_game:latest
 
       - name: Pull Updated Software
-        run: docker pull ghcr.io/anutting/go_fish_game:latest
+        run: |
+          echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+          docker pull ghcr.io/anutting/go_fish_game:latest
         
       # - name: Build and package executable
       #   run: |
