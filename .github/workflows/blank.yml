@@ -65,7 +65,7 @@ jobs:
             echo "DOCKERHUB_PASSWORD is missing"
             exit 1
           fi
-      
+    
           echo "All secrets are present."
         
       - name: Log in to Docker Hub
