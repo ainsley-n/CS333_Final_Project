@@ -61,7 +61,4 @@ jobs:
         run: |
           docker push anutting/go_fish_game:latest
 
-      - name: Run updated software
-        run: |
-          docker run -i -t anutting/go_fish_game:latest
     
