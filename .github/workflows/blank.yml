@@ -60,4 +60,8 @@ jobs:
       - name: Push to container registry
         run: |
           docker push anutting/go_fish_game:latest
+
+      - name: Run updated software
+        run: |
+          docker run -it anutting/go_fish_game:latest
     
