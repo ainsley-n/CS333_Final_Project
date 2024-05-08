@@ -54,7 +54,7 @@ class GoFishGame:
 
 
     def play(self):
-        print("Super Awesome Go Fish Game!!!")
+        print("Super Awesome GoFish Game!!!")
         current_player_idx = 0
         while True:
             current_player = self.players[current_player_idx]
